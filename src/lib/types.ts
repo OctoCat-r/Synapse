@@ -1,3 +1,4 @@
+// import { ConnectionProviderProps } from '@/providers/connections-provider'
 import { ConnectionProviderProps } from "@/utilityProviders/connection-providers";
 import { z } from "zod";
 
@@ -5,6 +6,7 @@ export const EditUserProfileSchema = z.object({
   email: z.string().email("Required"),
   name: z.string().min(1, "Required"),
 });
+
 export const WorkflowFormSchema = z.object({
   name: z.string().min(1, "Required"),
   description: z.string().min(1, "Required"),
@@ -21,6 +23,7 @@ export type Connection = {
   alwaysTrue?: boolean;
   slackSpecial?: boolean;
 };
+
 export type EditorCanvasTypes =
   | "Email"
   | "Condition"

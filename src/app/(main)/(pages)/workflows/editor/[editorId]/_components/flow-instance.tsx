@@ -1,7 +1,6 @@
 'use client'
 import { Button } from '@/components/ui/button'
 // import { useNodeConnections } from '@/providers/connections-provider'
-import { useNodeConnections } from '@/utilityProviders/connection-providers'
 import { usePathname } from 'next/navigation'
 import React, { useCallback, useEffect, useState } from 'react'
 import {
@@ -9,6 +8,7 @@ import {
   onFlowPublish,
 } from '../_actions/workflow-connections'
 import { toast } from 'sonner'
+import { useNodeConnections } from '@/utilityProviders/connection-providers'
 
 type Props = {
   children: React.ReactNode

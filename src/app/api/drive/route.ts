@@ -35,6 +35,7 @@ export async function GET() {
     const response = await drive.files.list();
 
     if (response) {
+        console.log("drive",response);
       return Response.json(
         {
           message: response.data,

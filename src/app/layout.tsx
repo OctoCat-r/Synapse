@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/utilityProviders/theme-provider";
+// import { ThemeProvider } from '@/providers/theme-provider'
 import { ClerkProvider } from "@clerk/nextjs";
-import ModalProvider from "@/utilityProviders/modal-provider";
+// import ModalProvider from '@/providers/modal-provider'
 import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/utilityProviders/theme-provider";
+import { BillingProvider } from "@/utilityProviders/billing-provider";
+import ModalProvider from "@/utilityProviders/modal-provider";
+// import { BillingProvider } from '@/providers/billing-provider'
+
 const font = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Synapse",
-  description: "Go beyond automation with Synapse",
+  description: "Automate Your Work With Synapse.",
 };
 
 export default function RootLayout({
@@ -29,9 +34,12 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <ModalProvider>
-              {children} <Toaster />
-            </ModalProvider>
+            <BillingProvider>
+              <ModalProvider>
+                {children}
+                <Toaster />
+              </ModalProvider>
+            </BillingProvider>
           </ThemeProvider>
         </body>
       </html>

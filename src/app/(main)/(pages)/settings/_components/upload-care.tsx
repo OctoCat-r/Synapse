@@ -6,7 +6,7 @@ type Props = {
   onUpload: (e: string) => any;
 };
 LR.registerBlocks(LR);
-const UploadCareButton = ({ onUpload }) => {
+const UploadCareButton = ({ onUpload }: Props) => {
   const router = useRouter();
   const ctxProviderRef = useRef<
     typeof LR.UploadCtxProvider.prototype & LR.UploadCtxProvider

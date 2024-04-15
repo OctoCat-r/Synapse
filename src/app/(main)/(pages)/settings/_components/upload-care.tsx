@@ -6,7 +6,7 @@ type Props = {
   onUpload: (e: string) => any;
 };
 LR.registerBlocks(LR);
-const UploadCareButton = ({ onUpload }: Props) => {
+const UploadCareButton = ({ onUpload }) => {
   const router = useRouter();
   const ctxProviderRef = useRef<
     typeof LR.UploadCtxProvider.prototype & LR.UploadCtxProvider
@@ -19,7 +19,8 @@ const UploadCareButton = ({ onUpload }: Props) => {
         router.refresh();
       }
     };
-    ctxProviderRef.current.addEventListener(
+    console.log(ctxProviderRef.current, "Hello");
+    ctxProviderRef.current?.addEventListener(
       "file-upload-success",
       handleUpload
     );
